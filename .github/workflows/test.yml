@@ -1,11 +1,11 @@
 name: Test workflow
-run-name: "Ref: ${{ github.action_ref }}"
+run-name: "Push by: ${{ github.actor }}"
 on: 
   - workflow_dispatch
   - push
 jobs:
   test_job:
-    name: "Committed with following SHA: ${{ github.sha }}"
+    name: "Pushed with following SHA: ${{ github.sha }}"
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout
