@@ -25,6 +25,8 @@ jobs:
       - name: echo
         run: echo Hello, World!
 
+      - run: echo ${{ secrets.GUGUS }}
+
       - run: ls -la
 
 
