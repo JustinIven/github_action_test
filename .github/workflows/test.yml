@@ -10,6 +10,10 @@ on:
           - Ubuntu
           - macOS
   push:
+
+env:
+  gugus: "gugus_env"
+
 jobs:
   job1:
     name: "Pushed with following SHA: ${{ github.sha }}"
@@ -25,7 +29,7 @@ jobs:
       - name: echo
         run: echo Hello, World!
 
-      - run: echo $GUGUS 
+      - run: echo ${{ env.gugus }} 
 
       - run: ls -la
 
