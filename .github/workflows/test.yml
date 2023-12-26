@@ -1,8 +1,15 @@
 name: Test workflow
 run-name: "Push by: ${{ github.actor }}"
 on: 
-  - workflow_dispatch
-  - push
+  workflow_dispatch:
+    inputs:
+      chosen-os:
+        required: true
+        type: choice
+        options:
+          - Ubuntu
+          - macOS
+  push:
 jobs:
   test_job:
     name: "Pushed with following SHA: ${{ github.sha }}"
