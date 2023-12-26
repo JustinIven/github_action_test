@@ -1,4 +1,5 @@
 name: Test workflow
+run-name: "Ref: ${{ github.action_ref }}"
 on: 
   - workflow_dispatch
   - push
