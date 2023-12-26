@@ -11,7 +11,7 @@ on:
           - macOS
   push:
 jobs:
-  test_job:
+  job1:
     name: "Pushed with following SHA: ${{ github.sha }}"
     runs-on: ubuntu-latest
     steps: 
@@ -28,8 +28,9 @@ jobs:
       - run: ls -la
 
 
-  test_job2:
+  job2:
     runs-on: ubuntu-latest 
+    needs: job1
     steps:
       - run: echo Hello, World!
     
