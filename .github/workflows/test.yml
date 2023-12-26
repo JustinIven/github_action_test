@@ -18,6 +18,10 @@ jobs:
   job1:
     name: "Pushed with following SHA: ${{ github.sha }}"
     runs-on: ubuntu-latest
+    strategy: 
+      matrix:
+        version: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest]
     steps: 
       - name: Checkout
         uses: actions/checkout@v3
@@ -31,12 +35,8 @@ jobs:
 
       - run: echo ${{ env.gugus }} 
 
-      - run: ls -la
+      - run: echo ${{ matrix.os }}-${{matrix.version}}
 
-      - uses: actions/upload-artifact@v3
-        with:
-          name: github-art-test
-          path: .github
 
 
 
